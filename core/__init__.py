@@ -1,0 +1,1 @@
+from .omiebase import OmieBase

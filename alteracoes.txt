@@ -1,0 +1,18 @@
+omieapi.core.omiebase
+- linha 100 a 114
+Extraída a função pega_links_api do módulos scripts.scrap
+O módulo scripts.scrap tem sua funcionalidade para construir o código base, mas não parece fazer sentido mantê-lo no pacote porque esse módulo não compõe a rotina de consultas à api.
+Apesar disso ele possuía uma função utilizada exclusivamente pela classe OmieBase para carregar os endpoints disponíveis para consulta. Assim essa função foi absorvida pela classe citada compondo um método de mesmo nome.
+
+- linha 71 a 130
+Marcado como sugestão de exclusão já que não possui uso no módulo.
+Métodos substituídos pelas chamadas da classe CodigoAutogerado e dependências não utilizadas
+
+- linha 36 a 40
+Inserido um loop para lidar com excesso de requisições, inserindo um sleep de um segundo no final do loop para diminuir a quantidade de requisições recusadas e não sobrecarregar a api
+
+omieapi.scripts
+Pacote excluído e cod_automatico transferido para o core
+
+omieapi
+Todas importações foram alteradas para suportar importações relativas
