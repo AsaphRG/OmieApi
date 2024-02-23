@@ -30,14 +30,15 @@ class OmieBase:
 
     def _post_request(self, url: str, json: dict) -> dict:
             try:
-                if self._has_session:
-                    r = self._session.post(url, headers=self._head, json=json)
-                else:
-                    while True:
+                while True:
+                    if self._has_session:
+                        r = self._session.post(url, headers=self._head, json=json)
+                    else:
                         r = post(url, headers=self._head, json=json)
-                        if r.status_code != 400:
-                            break
-                        sleep(1)
+                    
+                    if r.status_code != 429:
+                        break
+                    sleep(1)
                 
                 if r.status_code == 200:
                     try:
